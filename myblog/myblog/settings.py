@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'doc',
     'news',
     'course',
+    'verifications',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'myblog.urls'
+AUTH_USER_MODEL = 'user.Users'
+
 
 TEMPLATES = [
     {
@@ -103,7 +107,28 @@ CACHES = {
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
-    }        
+    },
+    'verify_codes': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    },
+    "session": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "sms_codes": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
 }
 
 
@@ -147,3 +172,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# 将用户的session保存到redis中
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# 指定缓存redis的别名
+SESSION_CACHE_ALIAS = "session"
+
+

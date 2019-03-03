@@ -12,7 +12,6 @@
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../css/base/reset.css">
   <link rel="stylesheet" href="../css/base/common.css">
-  <link rel="stylesheet" href="../css/news/news-detail.css">
   <link rel="stylesheet" href="../css/base/side.css">
 </head>
 <body>
@@ -90,7 +89,7 @@
         <ul class="comment-list">
           <li class="comment-item">
             <div class="comment-info clearfix">
-              <img src="../images/avatar.jpeg" alt="avatar" class="comment-avatar">
+              <img src="../../static/images/avatar.jpeg" alt="avatar" class="comment-avatar">
               <span class="comment-user">评论人</span>
               <span class="comment-pub-time">1小时前</span>
             </div>
@@ -98,7 +97,7 @@
           </li>
           <li class="comment-item">
             <div class="comment-info clearfix">
-              <img src="../images/avatar.jpeg" alt="avatar" class="comment-avatar">
+              <img src="../../static/images/avatar.jpeg" alt="avatar" class="comment-avatar">
               <span class="comment-user">评论人</span>
               <span class="comment-pub-time">1小时前</span>
             </div>
@@ -141,15 +140,15 @@
               <h3 class="attention-title">关注我</h3>
               <ul class="side-attention-address">
                   <li>
-                      <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-GitHub"></i>Youkou</a>
+                      <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-GitHub"></i>JackLee</a>
                   </li>
                   <li>
                       <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-zhihu"
-                                                                       style="color:rgb(0, 108, 226);"></i>Youkou</a>
+                                                                       style="color:rgb(0, 108, 226);"></i>JackLee</a>
                   </li>
                   <li>
                       <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-weibo"
-                                                                       style="color:rgb(245,92,110);"></i>Youkou</a>
+                                                                       style="color:rgb(245,92,110);"></i>JackLee</a>
                   </li>
               </ul>
               <div class="side-attention-qr">
@@ -164,7 +163,7 @@
                   <li>
                       <a href="javascript:void(0)" class="hot-news-contain clearfix">
                           <div class="hot-news-thumbnail">
-                              <img src="../images/python_web.jpg"
+                              <img src="../../static/images/python_web.jpg"
                                    alt="">
                           </div>
                           <div class="hot-news-content">
@@ -189,30 +188,18 @@
 </main>
 <!-- main end -->
 
-<!-- footer start -->
-<footer id="footer">
-  <div class="footer-box">
-    <div class="footer-content">
-      <p class="top-content">
-					<span class="link">
-						<a href="javascript:void(0)">关于Python</a> |
-						<a href="javascript:void(0)">我就是我</a> |
-						<a href="javascript:void(0)">人生苦短</a> |
-						<a href="javascript:void(0)">我用Python</a>
-					</span>
-        <span class="about-me">关于我: <i class="PyWhich py-wechat"></i> Youkou</span>
-      </p>
-      <p class="bottom-content">
-        <span>地址： xxxx</span>
-        <span>联系方式: <a href="tel:400-1567-315">400-1567-315</a> (24小时在线)</span>
-      </p>
-    </div>
-    <p class="copyright-desc">
-      Copyright &copy; 2008 - 2018 xxx有限公司. All Rights Reserved
-    </p>
-  </div>
-</footer>
-<!-- footer end -->
-<script></script>
-</body>
-</html>
+
+
+{% extends "base/base.html" %}
+
+<!-- title start -->
+{% block title %}
+  NewsDetail
+{% endblock %}
+<!-- title end -->
+
+<!-- css link start -->
+{% block link %}
+  <link rel="stylesheet" href="../../static/css/news/news-detail.css">
+{% endblock %}
+<!-- css link end -->
